@@ -1,0 +1,44 @@
+// @import "./variables.scss";
+
+@import "./pages/header.scss";
+@import "./pages/sidebar.scss";
+@import "./pages/banner.scss";
+@import "./pages/content.scss";
+@import "./pages/people.scss";
+@import "./components/buttons.scss";
+@import "./components/navbar.scss";
+@import "./components/generic.scss";
+@import "./partials/variables";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+* {
+  font-family: "Nunito", sans-serif;
+}
+
+
+
+.App {
+  // text-align: center;
+  min-height: 100vh;
+  background-color: $app-color;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

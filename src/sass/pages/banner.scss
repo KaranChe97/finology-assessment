@@ -1,0 +1,72 @@
+@import "../partials/variables";
+
+.banner {
+  background-color: $primary;
+  width: 100%;
+  color: white;
+  text-align: left;
+
+  .banner-wrapper {
+    width: 100%;
+    padding: 2% 0%;
+   
+    .banner-left {
+      background-image: url("/src/assets/2-banner/banner-rounded-001.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-clip: content-box;
+    }
+
+    .banner-right {
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-clip: content-box;
+      background-position: right;
+      background-color: $primary;
+
+      background-image: url("/src/assets/2-banner/banner-rounded-002.svg");
+    }
+  }
+
+  .banner-container {
+    width: 80%;
+    margin-left: 20%;
+    // padding: 2% 0% 2% 10%;
+
+    .banner-title {
+      font-size: 3.5em;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    .banner-subtitle {
+      font-size: 1em;
+    }
+  }
+
+  .banner-image {
+    height: 300px;
+    position: absolute;
+    // overflow-x: hidden;
+  }
+}
+
+@media (max-width: 570px) {
+  .banner {
+    margin-top: 60px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    .banner-container {
+        margin-left: 10%;
+        width: 90%;
+      }
+  }
+
+  .banner-right {
+    height: 400px;
+  }
+}

@@ -1,0 +1,31 @@
+@import '../partials/variables';
+
+.sidebar {
+    width: 100%;
+    background-color: $primary;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: left;
+    height: 100vh;
+    padding: 10px;
+    overflow: hidden;
+    top: 0;
+    z-index: 10;
+    position: fixed;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+
+.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+
+    
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}

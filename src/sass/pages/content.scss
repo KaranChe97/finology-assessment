@@ -1,0 +1,29 @@
+@import "../partials/variables";
+
+.content-box {
+  width: 100%;
+  padding: 2% 10%;
+  background-color: #ffffff;
+  text-align: left;
+
+  .content-row {
+    min-height: 400px;
+    align-items: center;
+  }
+
+  .content-wrapper {
+    height: inherit;
+
+    .content-body {
+      font-size: 17px;
+      font-weight: 100;
+      color: $content;
+    }
+  }
+}
+
+.content-title {
+  font-size: 23px;
+  font-weight: 700;
+  color: $primary;
+}

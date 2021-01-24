@@ -1,0 +1,57 @@
+@import '../partials/variables';
+
+.header {
+  background-color: $primary;
+  width: 100%;
+  padding: 1% 0%;
+  height: 60px;
+
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    width: 80%;
+    margin: 0% 10%;  
+  }
+}
+
+.app-logo {
+  height: 3rem;
+}
+
+.searchIcon {
+  height: 1rem;
+  cursor: pointer;
+}
+
+.header-mobile {
+  display: none;
+  width: 100%;
+  z-index: 10;
+  height: 60px;
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0% 10%;
+    padding: 1% 0%;
+   
+  }
+}
+
+@media (max-width: 570px) {
+  .header {
+    display: none;
+  }
+
+  .header-mobile {
+    display: block;
+    background-color: $primary;
+    position: fixed;
+    top: 0;
+  }
+}

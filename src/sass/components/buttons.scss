@@ -1,0 +1,30 @@
+
+@import '../partials/variables';
+
+.burger-btn {
+  display: flex;
+  height: 35px;
+  width: 35px;
+  padding: 0px 4px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    div {
+      box-shadow: 0px 1px 3px $highlight;
+    }
+  }
+
+  div {
+    height: 3px;
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+  }
+}
+
+.close-btn {
+  cursor: pointer;
+}
