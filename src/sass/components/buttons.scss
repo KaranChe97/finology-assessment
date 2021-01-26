@@ -1,5 +1,5 @@
-
-@import '../partials/variables';
+@use '../partials/mixins' as m;
+@import "../partials/variables";
 
 .burger-btn {
   display: flex;
@@ -27,4 +27,23 @@
 
 .close-btn {
   cursor: pointer;
+}
+
+.edit-Btn {
+  @include m.light-btn;
+  background-color: #fffede;
+  color: #ffc020;
+}
+
+.add-Btn {
+  @include m.light-btn;
+  color: #8251bc;
+  background-color: #eedeff;
+}
+
+.cancel-btn {
+  @include m.hollow-btn;
+  &:hover {
+    color: $grey;
+  }
 }

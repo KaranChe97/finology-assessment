@@ -1,17 +1,23 @@
 import React from "react";
+import { useCarousel } from "../hooks";
+import { Image } from "react-bootstrap";
+import SpaceBar from "./spacebar";
 
 export default function Carousel({ items, itemsPerSlide }) {
   const perSlide = new Array(itemsPerSlide).fill("*");
-  const length = items.length;
   const slidesCount = Math.ceil(items.length / itemsPerSlide);
-  const totalSlides = new Array(slidesCount).fill("#");
-
+  const slides = new Array(slidesCount).fill("#");
+  const interval = 6000;
+  const [active, setActive, handlers, style] = useCarousel(
+    slidesCount,
+    interval
+  );
   return (
     <React.Fragment>
-      {length > 0 && (
+      {items.length > 0 && (
         <div className="carousel testimony-container">
           <ol className="carousel-indicators">
-            {totalSlides.map((_, index) => (
+            {slides.map((_, index) => (
               <div
                 onClick={() => setActive(index)}
                 key={index}
@@ -25,69 +31,49 @@ export default function Carousel({ items, itemsPerSlide }) {
           <div className="carousel-content" {...handlers} style={style}>
             <div className="carousel-item">
               {perSlide.map((_, i) => (
-                <TestimonyCard t={items[items.length - i]} />
+                <React.Fragment>
+                  {items[items.length - (i + 1)] ? (
+                    <TestimonyCard
+                      className="testimony-card"
+                      t={items[items.length - (i + 1)]}
+                    />
+                  ) : (
+                    ""
+                  )}
+                </React.Fragment>
               ))}
-              {!isMobile ? (
-                <div className="carousel-item">
-                  <TestimonyCard t={testimonials[testimonials.length - 3]} />
-                  <TestimonyCard t={testimonials[testimonials.length - 2]} />
-                  <TestimonyCard t={testimonials[testimonials.length - 1]} />
-                </div>
-              ) : (
-                <TestimonyCard t={testimonials[testimonials.length - 1]} />
-              )}
             </div>
 
-            {!isMobile
-              ? indicator.map((t, index) => (
-                  <div
-                    className={`carousel-item ${
-                      active === index ? "active" : ""
-                    }`}
-                    key={index}
-                  >
-                    <TestimonyCard
-                      className="testimony-card"
-                      t={testimonials[index * length]}
-                    />
-                    <TestimonyCard
-                      className="testimony-card"
-                      t={testimonials[index * length + 1]}
-                    />
-                    <TestimonyCard
-                      className="testimony-card"
-                      t={testimonials[index * length + 2]}
-                    />
-                  </div>
-                ))
-              : testimonials.map((testimony, index) => (
-                  <div
-                    className={`carousel-item ${
-                      active === index ? "active" : ""
-                    }`}
-                    key={index}
-                  >
-                    <TestimonyCard
-                      className="testimony-card"
-                      key={testimony.name}
-                      t={testimony}
-                    />
-                  </div>
+            {slides.map((_, index) => (
+              <div
+                className={`carousel-item ${active === index ? "active" : ""}`}
+                key={index}
+              >
+                {perSlide.map((_, i) => (
+                  <React.Fragment>
+                    {items[index * itemsPerSlide + i] ? (
+                      <TestimonyCard
+                        className="testimony-card"
+                        t={items[index * itemsPerSlide + i]}
+                      />
+                    ) : (
+                      ""
+                    )}
+                  </React.Fragment>
                 ))}
+              </div>
+            ))}
 
             <div className="carousel-item">
-              <TestimonyCard
-                className="testimony-card carousel-item"
-                t={testimonials[0]}
-              />
-              <TestimonyCard
-                className="testimony-card carousel-item"
-                t={testimonials[1]}
-              />
-              <TestimonyCard
-                className="testimony-card carousel-item"
-                t={testimonials[2]}
-              />
+              {perSlide.map((_, i) => (
+                <React.Fragment>
+                  {items[i] ? (
+                    <TestimonyCard className="testimony-card" t={items[i]} />
+                  ) : (
+                    ""
+                  )}
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </div>

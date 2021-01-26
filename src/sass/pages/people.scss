@@ -17,6 +17,13 @@
     align-items: center;
   }
 
+  .people-opinion-wrapper-right {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
   .heartIcon {
     @include m.rounded-icon;
     background-color: #fe0202;
@@ -30,6 +37,31 @@
     margin-left: 1em;
     cursor: pointer;
   }
+
+  .happyFaceIcon {
+    @include m.rounded-icon;
+    background-color: #ff00b7;
+    box-shadow: 3px 3px 6px #ff00b744;
+    margin-right: 1em;
+  }
+
+  .garbageIcon {
+    @include m.rounded-icon;
+    background-color: #ffeeee;
+    padding: 7px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    img {
+      height: 15px;
+      width: 15px;
+    }
+
+    &:hover {
+      box-shadow: 0px 2px 3px #ffd7d7;
+    }
+  }
 }
 
 .testimony-container {
@@ -39,7 +71,6 @@
 
   .testimony-card {
     width: 300px;
-    // margin: 10px;
     padding: 20px;
     height: 180px;
     background-color: white;
@@ -132,4 +163,114 @@
       }
     }
   }
+}
+
+.people-display-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: auto;
+
+  .people-card {
+    height: auto;
+    text-align: center;
+    padding-bottom: 10px;
+    margin: 10px;
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px gainsboro;
+    cursor: pointer;
+    .title {
+      color: v.$grey;
+      font-weight: 600;
+      padding: 5px 0px;
+    }
+
+    .designation {
+      color: v.$content-black;
+      font-size: 12px;
+    }
+
+    .editIcon {
+      display: none;
+    }
+    &:hover {
+      .editIcon {
+        @include m.rounded-icon;
+        background-color: #dcf0ff;
+        width: 17px;
+        height: 17px;
+        float: right;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 5;
+        margin: 5px;
+
+        img {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+}
+
+.checked-icon-active {
+  @include m.rounded-icon;
+  background-color: $primary;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+  margin: 5px;
+
+  img {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.checked-icon-inactive {
+  border: 1px solid gainsboro;
+  background-color: $app-color;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+  margin: 5px;
+  img {
+    display: none;
+  }
+}
+
+.view-person-container {
+  display: flex;
+  width: 100%;
+  position: relative;
+
+  .view-person-content {
+    padding: 10px;
+    color: $grey;
+    font-weight: 400;
+  }
+}
+
+.closeViewIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
 }

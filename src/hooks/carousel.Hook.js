@@ -60,7 +60,6 @@ function carouselReducer(state, action) {
 function swiped(e, dispatch, length, dir) {
   const t = threshold(e.event.target);
   const d = dir * (e.deltaX * -1);
-  // alert(`d: ${d} t:${t}  `);
   if (d >= t) {
     dispatch({
       type: dir > 0 ? "next" : "prev",
@@ -74,7 +73,7 @@ function swiped(e, dispatch, length, dir) {
   }
 }
 
-export function useCarousel(length, interval) {
+export default function useCarousel(length, interval) {
   const [state, dispatch] = useReducer(carouselReducer, initialCarouselState);
   const handlers = useSwipeable({
     onSwiping(e) {
