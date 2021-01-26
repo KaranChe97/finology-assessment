@@ -242,34 +242,6 @@
   height: 20px;
   width: 20px;
 }
-.people-slider-box .garbageIcon {
-  border-radius: 50%;
-  height: 40px;
-  background-color: transparent;
-  width: 40px;
-  flex-wrap: nowrap;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  background-color: #ffeeee;
-  padding: 7px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-.people-slider-box .garbageIcon img {
-  height: 20px;
-  width: 20px;
-}
-.people-slider-box .garbageIcon img {
-  height: 15px;
-  width: 15px;
-}
-.people-slider-box .garbageIcon:hover {
-  box-shadow: 0px 2px 3px #ffd7d7;
-}
 
 .testimony-container {
   overflow-x: hidden;
@@ -365,6 +337,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   height: auto;
+  margin-top: 20px;
 }
 .people-display-container .people-card {
   height: auto;
@@ -478,6 +451,30 @@
   font-weight: 400;
 }
 
+.edit-person-container {
+  width: 100%;
+  position: relative;
+  min-height: 300px;
+  color: #252584;
+  padding: 20px;
+}
+.edit-person-container input,
+.edit-person-container textarea {
+  width: 100%;
+}
+
+.edit-img-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  flex-shrink: 0;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  width: 100%;
+  align-items: center;
+}
+
 .closeViewIcon {
   position: absolute;
   top: 10px;
@@ -485,6 +482,139 @@
   height: 15px;
   width: 15px;
   cursor: pointer;
+}
+
+.userIcon {
+  border-radius: 50%;
+  height: 40px;
+  background-color: transparent;
+  width: 40px;
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  background-color: #dcf0ff;
+}
+.userIcon img {
+  height: 20px;
+  width: 20px;
+}
+
+.garbageIcon {
+  border-radius: 50%;
+  height: 40px;
+  background-color: transparent;
+  width: 40px;
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: #ffeeee;
+  padding: 7px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.garbageIcon img {
+  height: 20px;
+  width: 20px;
+}
+.garbageIcon img {
+  height: 15px;
+  width: 15px;
+}
+.garbageIcon:hover {
+  box-shadow: 0px 2px 3px #ffd7d7;
+}
+
+.garbageIconMini {
+  border-radius: 50%;
+  height: 40px;
+  background-color: transparent;
+  width: 40px;
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: #ffeeee;
+  padding: 7px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.garbageIconMini img {
+  height: 20px;
+  width: 20px;
+}
+.garbageIconMini img {
+  height: 10px;
+  width: 10px;
+}
+.garbageIconMini:hover {
+  box-shadow: 0px 2px 3px #ffd7d7;
+}
+
+.delete-block {
+  display: flex;
+  width: 130px;
+  cursor: pointer;
+  margin: 10px 50px;
+  justify-content: space-evenly;
+  font-size: 12px;
+  align-items: center;
+  color: red;
+}
+.delete-block:hover {
+  font-weight: bold;
+}
+
+.editImageIcon {
+  border-radius: 50%;
+  height: 40px;
+  background-color: transparent;
+  width: 40px;
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: #dcf0ff;
+  width: 17px;
+  height: 17px;
+  float: right;
+  cursor: pointer;
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+  z-index: 5;
+  margin: 5px;
+}
+.editImageIcon img {
+  height: 20px;
+  width: 20px;
+}
+.editImageIcon img {
+  width: 10px;
+  height: 10px;
+}
+
+.imagePlaceholder {
+  background-color: #dcf0ff;
+}
+
+.edit-footer {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }
 
 .burger-btn {
@@ -546,6 +676,19 @@
 }
 .cancel-btn:hover {
   color: #5b5b5b;
+}
+
+.primary-btn {
+  border: none;
+  margin: 0px 10px;
+  border-radius: 10%;
+  padding: 1% 3%;
+  box-shadow: 0px 1px 1px gainsboro;
+  background-color: #252584;
+  color: white;
+}
+.primary-btn:hover {
+  box-shadow: 0px 2px 3px gainsboro;
 }
 
 .nav-links {

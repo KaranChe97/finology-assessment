@@ -44,24 +44,6 @@
     box-shadow: 3px 3px 6px #ff00b744;
     margin-right: 1em;
   }
-
-  .garbageIcon {
-    @include m.rounded-icon;
-    background-color: #ffeeee;
-    padding: 7px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-
-    img {
-      height: 15px;
-      width: 15px;
-    }
-
-    &:hover {
-      box-shadow: 0px 2px 3px #ffd7d7;
-    }
-  }
 }
 
 .testimony-container {
@@ -171,6 +153,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   height: auto;
+  margin-top: 20px;
 
   .people-card {
     height: auto;
@@ -266,6 +249,31 @@
   }
 }
 
+.edit-person-container {
+  width: 100%;
+  position: relative;
+  min-height: 300px;
+  color: $primary;
+  padding: 20px;
+
+  input,
+  textarea {
+    width: 100%;
+  }
+}
+
+.edit-img-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  flex-shrink: 0;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  width: 100%;
+  align-items: center;
+}
+
 .closeViewIcon {
   position: absolute;
   top: 10px;
@@ -273,4 +281,91 @@
   height: 15px;
   width: 15px;
   cursor: pointer;
+}
+
+.userIcon {
+  @include m.rounded-icon;
+  width: 100px;
+  height: 100px;
+  background-color: #dcf0ff;
+}
+
+.garbageIcon {
+  @include m.rounded-icon;
+  background-color: #ffeeee;
+  padding: 7px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  img {
+    height: 15px;
+    width: 15px;
+  }
+
+  &:hover {
+    box-shadow: 0px 2px 3px #ffd7d7;
+  }
+}
+
+.garbageIconMini {
+  @include m.rounded-icon;
+  background-color: #ffeeee;
+  padding: 7px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+
+  img {
+    height: 10px;
+    width: 10px;
+  }
+
+  &:hover {
+    box-shadow: 0px 2px 3px #ffd7d7;
+  }
+}
+
+.delete-block {
+  display: flex;
+  width: 130px;
+  cursor: pointer;
+  margin: 10px 50px;
+  justify-content: space-evenly;
+  font-size: 12px;
+  align-items: center;
+  color: red;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.editImageIcon {
+  @include m.rounded-icon;
+  background-color: #dcf0ff;
+  width: 17px;
+  height: 17px;
+  float: right;
+  cursor: pointer;
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+  z-index: 5;
+  margin: 5px;
+
+  img {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.imagePlaceholder {
+  background-color: #dcf0ff;
+}
+
+.edit-footer {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }

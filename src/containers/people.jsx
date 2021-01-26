@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Image, Row, Col, Modal } from "react-bootstrap";
 
 import HappyFace from "../assets/7-icons/happy-face.svg";
 import Garbage from "../assets/7-icons/garbage.svg";
+import UserIcon from "../assets/7-icons/user.svg";
 import PencilIcon from "../assets/7-icons/pencil.svg";
 import CheckedIcon from "../assets/7-icons/checked.svg";
 import CloseIcon from "../assets/7-icons/close.svg";
 import { Title, SpaceBar } from "../components";
 /* cSpell:disable */
-import DavidChampion from "../assets/4-people/david-campion.jpg";
 import DarleneChabrat from "../assets/4-people/darlene-chabrat.jpg";
 import GaetanHoussin from "../assets/4-people/gaetan-houssin.jpg";
 import JeromeBoudot from "../assets/4-people/jerome-boudot.jpg";
@@ -16,95 +16,115 @@ import JeromeMahuet from "../assets/4-people/jerome-mahuet.jpg";
 import ManuelaFaveri from "../assets/4-people/manuela-faveri.jpg";
 import NicolasLavarreau from "../assets/4-people/nicolas-lebarreau.jpg";
 import RomaneRegad from "../assets/4-people/romane-regad.jpg";
-import SylvianSalomon from "../assets/4-people/sylvain-salomon.jpg";
-import TaniaFerrerira from "../assets/4-people/tania-ferreira.jpg";
-import VincentJoignie from "../assets/4-people/vincent-joignie.jpg";
 
 const allPeople = [
   {
     name: "Frank  Ltarnam",
     designation: "CEO",
     description:
-      "System is excellent. It has made my system user experience to become one of the easiest!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     src: GaetanHoussin,
   },
   {
     name: "Bob Shefley",
     designation: "UI/UX Designer",
     description:
-      "I just want to share a quick note and let you know that you guys do a really good job.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     src: NicolasLavarreau,
   },
   {
     name: "Lucas Bond",
     designation: "Full-Stack Developer",
     description:
-      "Now it's almost like having a designer right. I just choose the page, make the changes and save",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     src: JeromeBoudot,
   },
 
   {
     name: "Darlene Chabrat",
-    designation: "UI/UX Designer",
+    designation: "Devops Engineer",
     description:
-      "I just want to share a quick note and let you know that you guys do a really good job.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     src: DarleneChabrat,
-  },
-  {
-    name: "Gaetan Houssin",
-    designation: "Full-Stack Developer",
-    description:
-      "Now it's almost like having a designer right. I just choose the page, make the changes and save",
-    src: GaetanHoussin,
   },
 
   {
     name: "Jerome Mahuet",
-    designation: "CEO",
+    designation: "Product Manager",
     description:
-      "System is excellent. It has made my system user experience to become one of the easiest!",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     src: JeromeMahuet,
   },
   {
     name: "Manuela Faveri",
-    designation: "Full-Stack Developer",
+    designation: "Marketing Manager",
     description:
-      "Now it's almost like having a designer right. I just choose the page, make the changes and save",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     src: ManuelaFaveri,
   },
   {
-    name: "Nicolas Lavarreau",
-    designation: "CEO",
-    description:
-      "System is excellent. It has made my system user experience to become one of the easiest!",
-    src: NicolasLavarreau,
-  },
-  {
     name: "Romane Regad",
-    designation: "UI/UX Designer",
+    designation: "HR Manager",
     description:
-      "I just want to share a quick note and let you know that you guys do a really good job.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     src: RomaneRegad,
   },
 ];
 
 const initialViewState = { view: false, person: "" };
+const initialEditState = {
+  view: false,
+  person: {
+    name: "",
+    description: "",
+    designation: "",
+    src: "",
+  },
+};
+
 function People() {
+  const imageRef = useRef();
+
   const [editMode, setEditMode] = useState(false);
-  const [editPerson, setEditPerson] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  const [editPerson, setEditPerson] = useState(initialEditState);
   const [people, setPeople] = useState(allPeople);
   const [viewPerson, setViewPerson] = useState(initialViewState);
   const [peopleTobeDeleted, setPeopleTobeDeleted] = useState([]);
+  const [selectedFile, setSelectedFile] = useState();
 
-  const openEdit = (person) => {
-    setEditPerson(person);
-    setShowModal(true);
+  const showOpenFileDialog = () => {
+    imageRef.current.click();
+  };
+
+  const handleChangeImage = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+  };
+
+  useEffect(() => {
+    if (selectedFile) {
+      const objectURL = URL.createObjectURL(selectedFile);
+      const { person, idx } = editPerson;
+      person["src"] = objectURL;
+      setEditPerson({
+        person,
+        idx,
+        view: true,
+      });
+      return () => URL.revokeObjectURL(objectURL);
+    }
+  }, [selectedFile]);
+
+  const openEdit = (person, idx) => {
+    setEditPerson({
+      view: true,
+      idx,
+      person: { ...person },
+    });
   };
 
   const closeEdit = () => {
-    setEditPerson("");
-    setShowModal(false);
+    setEditPerson(initialEditState);
   };
 
   const toggleEditMode = () => {
@@ -145,6 +165,39 @@ function People() {
     }
   };
 
+  const handleChangeEdit = (e) => {
+    const { person, idx } = editPerson;
+    person[e.target.name] = e.target.value;
+    setEditPerson({
+      person,
+      idx,
+      view: true,
+    });
+  };
+
+  const deleteImage = () => {
+    const { person, idx } = editPerson;
+    person["src"] = "";
+    setEditPerson({
+      person,
+      idx,
+      view: true,
+    });
+  };
+
+  const savePerson = () => {
+    const { person, idx } = editPerson;
+    if (!person.name || !person.designation) {
+      return alert("Please fill name and designation");
+    }
+    if (idx !== undefined) {
+      people[idx] = { ...person };
+    } else {
+      setPeople([...people, person]);
+    }
+    setEditPerson(initialEditState);
+  };
+
   return (
     <div className="content-box">
       <div className="people-slider-box">
@@ -176,7 +229,13 @@ function People() {
                     {" "}
                     Edit{" "}
                   </button>
-                  <button className="add-Btn"> Add </button>
+                  <button
+                    className="add-Btn"
+                    onClick={() => openEdit(initialEditState)}
+                  >
+                    {" "}
+                    Add{" "}
+                  </button>
                 </div>
               )}
             </Col>
@@ -192,9 +251,15 @@ function People() {
                 editMode ? handleDeleteClick(i) : openViewPerson(i);
               }}
             >
-              <Image src={p.src} rounded height="200px" />
+              <Image src={p.src || UserIcon} rounded height="200px" />
               {!editMode ? (
-                <div className="editIcon">
+                <div
+                  className="editIcon"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    openEdit(p, i);
+                  }}
+                >
                   {" "}
                   <img src={PencilIcon} alt="PencilIcon" />{" "}
                 </div>
@@ -215,15 +280,13 @@ function People() {
             </div>
           ))}
         </div>
-
-        {/* TODO here */}
       </div>
 
       {viewPerson && viewPerson.view ? (
         <Modal show={viewPerson.view} onHide={closeViewPerson} centered>
           <div className="view-person-container">
             <Image
-              src={viewPerson.person.src}
+              src={viewPerson.person.src || UserIcon}
               alt="persons"
               rounded
               height="180"
@@ -244,6 +307,117 @@ function People() {
       ) : (
         ""
       )}
+
+      {editPerson && editPerson.view ? (
+        <Modal show={editPerson.view} onHide={closeEdit} size="sm" centered>
+          <div className="edit-person-container">
+            <img
+              src={CloseIcon}
+              alt="closeIcon"
+              className="closeViewIcon"
+              onClick={closeEdit}
+            />
+            <h5>
+              {editPerson.idx !== undefined ? "Edit People" : "Add People"}{" "}
+            </h5>
+            <div className="edit-img-container">
+              <React.Fragment>
+                <div style={{ position: "relative", width: "fit-content" }}>
+                  {editPerson.person.src ? (
+                    <Image
+                      src={editPerson.person.src || UserIcon}
+                      roundedCircle
+                      height="100"
+                      width="100"
+                      className="imagePlaceholder"
+                      alt="person"
+                    />
+                  ) : (
+                    <div className="userIcon">
+                      {" "}
+                      <img src={UserIcon} alt="PencilIcon" />{" "}
+                    </div>
+                  )}
+                  <div className="editImageIcon">
+                    {" "}
+                    <img
+                      src={PencilIcon}
+                      alt="PencilIcon"
+                      onClick={showOpenFileDialog}
+                    />{" "}
+                  </div>
+                </div>
+                {editPerson.person.src ? (
+                  <div className="delete-block" onClick={deleteImage}>
+                    <div className="garbageIconMini">
+                      <img src={Garbage} alt="garbageIcon" />
+                    </div>{" "}
+                    <span>Delete Picture </span>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </React.Fragment>
+            </div>
+
+            <div>
+              <label> Name </label>
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter Name"
+                  value={editPerson.person.name}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <SpaceBar />
+              <label> Position </label>
+              <div>
+                <input
+                  type="text"
+                  name="designation"
+                  placeholder="Enter Position in the company"
+                  value={editPerson.person.designation}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <SpaceBar />
+              <label> Description </label>
+              <div>
+                <textarea
+                  rows={3}
+                  placeholder="Please describe about the person."
+                  name="description"
+                  value={editPerson.person.description}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <SpaceBar />
+              <div className="edit-footer">
+                <button className="cancel-btn" onClick={closeEdit}>
+                  {" "}
+                  Cancel{" "}
+                </button>
+                <button className="primary-btn" onClick={savePerson}>
+                  {" "}
+                  Save{" "}
+                </button>
+              </div>
+            </div>
+          </div>
+        </Modal>
+      ) : (
+        ""
+      )}
+
+      <input
+        ref={imageRef}
+        type="file"
+        style={{ display: "none" }}
+        accept="image/*"
+        onChange={handleChangeImage}
+      />
     </div>
   );
 }

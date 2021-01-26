@@ -47,3 +47,9 @@
     color: $grey;
   }
 }
+
+.primary-btn {
+  @include m.light-btn;
+  background-color: $primary;
+  color: white;
+}

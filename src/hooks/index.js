@@ -1,7 +1,6 @@
-import useCarousel from './carousel.Hook';
-import useWindowSize from './windowSize.Hook';
-
+import useCarousel from './carousel';
+import useWindowSize from './windowSize';
 export {
     useCarousel,
-    useWindowSize
+    useWindowSize,
 }
