@@ -9,7 +9,7 @@
   .banner-wrapper {
     width: 100%;
     padding: 2% 0%;
-   
+
     .banner-left {
       background-image: url("/src/assets/2-banner/banner-rounded-001.svg");
       background-repeat: no-repeat;
@@ -61,9 +61,9 @@
 @media (max-width: 768px) {
   .banner {
     .banner-container {
-        margin-left: 10%;
-        width: 90%;
-      }
+      margin-left: 10%;
+      width: 90%;
+    }
   }
 
   .banner-right {

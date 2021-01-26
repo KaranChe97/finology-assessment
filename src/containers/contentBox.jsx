@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Image } from "react-bootstrap";
 import Content1 from "../assets/3-content/content-001.png";
 import Content2 from "../assets/3-content/content-002.png";
-import { Title, SpaceBar } from '../components';
+import { Title, SpaceBar } from "../components";
 
 function ContentBox() {
   return (
@@ -12,10 +12,7 @@ function ContentBox() {
           <Image src={Content1} alt="content-1" fluid />
         </Col>
         <Col xs={12} md={6} className="content-wrapper">
-          <Title>
-            {" "}
-            We can give you best user experience to your system{" "}
-          </Title>
+          <Title> We can give you best user experience to your system </Title>
           <div className="content-body">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -29,7 +26,7 @@ function ContentBox() {
       <Row className="content-row">
         <Col xs={12} md={6} className="content-wrapper">
           <SpaceBar />
-          <Title > Easy access. </Title>
+          <Title> Easy access. </Title>
           <Title> Whenever, wherever you want </Title>
           <div className="content-body">
             {" "}

@@ -1,10 +1,10 @@
-@import '../partials/variables';
+@import "../partials/variables";
 
 .header {
   background-color: $primary;
   width: 100%;
   padding: 1% 0%;
-  height: 60px;
+  height: auto;
 
   .header-container {
     display: flex;
@@ -13,7 +13,7 @@
     align-items: center;
     color: #ffffff;
     width: 80%;
-    margin: 0% 10%;  
+    margin: 0% 10%;
   }
 }
 
@@ -39,7 +39,6 @@
     width: 80%;
     margin: 0% 10%;
     padding: 1% 0%;
-   
   }
 }
 

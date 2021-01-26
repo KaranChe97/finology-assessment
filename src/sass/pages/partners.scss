@@ -1,0 +1,15 @@
+.partner-container {
+  width: 100%;
+  padding: 2% 10%;
+  background-color: #ffffff;
+  text-align: center;
+
+  .partner-logos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+    height: auto;
+  }
+}

@@ -16,7 +16,9 @@ function Header() {
           {pages.map((p) => (
             <div
               key={p}
-              className={`${selectedPage === p ? "selectedNavLink" : " "} navLink`}
+              className={`${
+                selectedPage === p ? "selectedNavLink" : " "
+              } navLink`}
               onClick={() => setSelectedPage(p)}
             >
               {" "}

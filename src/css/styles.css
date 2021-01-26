@@ -3,7 +3,7 @@
   background-color: #252584;
   width: 100%;
   padding: 1% 0%;
-  height: 60px;
+  height: auto;
 }
 .header .header-container {
   display: flex;
@@ -615,6 +615,153 @@
   display: flex;
   width: 100%;
   justify-content: flex-end;
+}
+
+.partner-container {
+  width: 100%;
+  padding: 2% 10%;
+  background-color: #ffffff;
+  text-align: center;
+}
+.partner-container .partner-logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
+  height: auto;
+}
+
+.contact-container {
+  width: 100%;
+  padding: 2% 10%;
+  background-color: #ffffff;
+  text-align: center;
+}
+.contact-container .contact-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.contact-container .contact-map {
+  height: 400px;
+  width: 350px;
+  z-index: 0;
+}
+.contact-container .contact-form {
+  width: 400px;
+  height: 450px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px gainsboro;
+  border-radius: 20px;
+  color: #252584;
+  font-weight: 600;
+  text-align: left;
+}
+.contact-container .contact-form input,
+.contact-container .contact-form select,
+.contact-container .contact-form textarea {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+  outline: none;
+  box-shadow: none;
+}
+.contact-container .contact-form select {
+  height: 35px;
+}
+
+@media (max-width: 600px) {
+  .contact-container .contact-map {
+    width: 100%;
+    height: 250px;
+    margin-top: 15px;
+    z-index: 0;
+  }
+}
+.footer-section {
+  width: 100%;
+  display: flex;
+  padding: 0%;
+  min-height: 150px;
+  height: auto;
+  margin-top: 5%;
+  color: white;
+  background-color: #252584;
+  position: relative;
+}
+.footer-section .footer-left {
+  background-image: url("/src/assets/2-banner/banner-rounded-001.svg");
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  background-size: 25%;
+  background-clip: content-box;
+  width: 50%;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.footer-section .footer-right {
+  background-repeat: no-repeat;
+  background-size: 25%;
+  background-clip: content-box;
+  background-position: right;
+  height: 150px;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: url("/src/assets/2-banner/banner-rounded-002.svg");
+}
+
+.footer-logo {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+}
+.footer-logo img {
+  margin: 0 10px;
+}
+
+.footer-content {
+  padding: 2% 10%;
+  height: inherit;
+  z-index: 5;
+  display: flex;
+  text-align: left;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 16px;
+}
+.footer-content div {
+  margin: 5px;
+}
+.footer-content h5 {
+  font-size: 16px;
+}
+.footer-content label {
+  color: #b5b5c1;
+  font-size: 13px;
+}
+
+.right-flex {
+  justify-content: flex-end;
+}
+
+.left-flex {
+  justify-content: flex-start;
 }
 
 .burger-btn {

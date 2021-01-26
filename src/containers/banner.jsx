@@ -3,7 +3,7 @@ import { Row, Col, Image } from "react-bootstrap";
 
 import BannerImage from "../assets/2-banner/banner.png";
 
-function Banner({}) {
+function Banner() {
   return (
     <div className="banner">
       <Row className="banner-wrapper">
@@ -23,8 +23,7 @@ function Banner({}) {
         </Col>
         <Col xs={12} md={6} className="banner-right">
           <div className="banner-container">
-
-          <Image src={BannerImage} alt="banner"  className="banner-image"/>
+            <Image src={BannerImage} alt="banner" className="banner-image" />
           </div>
         </Col>
       </Row>
@@ -34,7 +33,7 @@ function Banner({}) {
 
 export default Banner;
 
-  /* <div className="banner-container">
+/* <div className="banner-container">
         <Row>
           <Col xs={12} md={6} className="banner-left">
             <div className="banner-title">Make development easy with us.</div>
@@ -53,4 +52,3 @@ export default Banner;
           </Col>
         </Row>
       </div> */
-

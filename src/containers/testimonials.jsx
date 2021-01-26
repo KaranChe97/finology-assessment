@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import  HeartIcon from "../assets/7-icons/heart.svg";
-import ArrowRight  from "../assets/7-icons/arrow-right.svg";
+import HeartIcon from "../assets/7-icons/heart.svg";
+import ArrowRight from "../assets/7-icons/arrow-right.svg";
 import { Title, SpaceBar } from "../components";
 import { Row, Col } from "react-bootstrap";
 
@@ -129,7 +129,7 @@ function Testimonials() {
           <Row style={{ width: "100%" }}>
             <Col sm={12} md={6}>
               <div className="people-opinion-wrapper">
-                <div className="heartIcon" >
+                <div className="heartIcon">
                   <img src={HeartIcon} alt="heartIcon" />
                 </div>
                 <Title> What other people say about our services </Title>
@@ -137,7 +137,10 @@ function Testimonials() {
             </Col>
             <Col sm={12} md={6}>
               <div className="people-opinion-wrapper-right">
-                <div className="arrowIcon" > <img src={ArrowRight} alt="arrowIcon" /> </div>
+                <div className="arrowIcon">
+                  {" "}
+                  <img src={ArrowRight} alt="arrowIcon" />{" "}
+                </div>
               </div>
             </Col>
           </Row>
